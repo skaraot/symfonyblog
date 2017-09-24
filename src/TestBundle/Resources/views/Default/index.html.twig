@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Merhaba, nasılsın?
+{% endblock title %}
+
+{% block body%}
+    <h4> <i class="glyphicon glyphicon-book"></i> Makaleler</h4>
+    {% for at in articles %}
+        <p class="well well-sm clearfix"> {{ at.title }}... <br>
+            <a href="detay/{{ at.slugtitle }}" class="btn btn-xs btn-primary pull-right">Devamı için tıklayın</a>
+        </p>
+    {% endfor %}
+{% endblock body %}

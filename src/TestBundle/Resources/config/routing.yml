@@ -1,0 +1,31 @@
+anasayfa:
+    path:     /
+    defaults: { _controller: TestBundle:Default:index }
+
+detay:
+    path:     /detay/{slugTitle}
+    defaults: { _controller: TestBundle:Default:detay }
+
+arama:
+    path:     /arama
+    defaults: { _controller: TestBundle:Default:arama }
+
+admin:
+    path:     /admin
+    defaults: { _controller: TestBundle:Admin:index }
+
+panel:
+    path:     /panel
+    defaults: { _controller: TestBundle:Admin:panel }
+
+duzenle:
+    path:     /duzenle/{id}/{ap}
+    defaults: { _controller: TestBundle:Admin:duzenle }
+
+kaydet:
+    path:     /kaydet
+    defaults: { _controller: TestBundle:Admin:kaydet }
+
+kapat:
+    path:     /kapat
+    defaults: { _controller: TestBundle:Admin:kapat }

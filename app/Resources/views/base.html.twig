@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {% stylesheets '@bootstrap_css' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+        <div class="container page-header">
+            {% block search %}
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="pull-left">{% block back%}{% endblock back %}</div>
+                </div>
+                <div class="col-xs-6">
+                    <form action="{{ path('arama') }}" method="post">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Blogda arama yapabilirsiniz.." name="articlesearch">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">ara</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endblock search %}
+            <div style="margin-top:40px;">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="col-sm-12 text-center small">Symfony Blog 0.001</div>
+        </div>
+        {% block javascripts %}{% endblock %}
+        {% javascripts '@jquery' '@bootstrap_js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </body>
+
+</html>

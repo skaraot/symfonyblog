@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block back %}
+    <a href="{{ path('anasayfa') }}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-home"></i></a>
+{% endblock back %}
+
+{% block title %}
+    Makalenin Tamamı
+{% endblock title %}
+
+{% block body%}
+
+    <div class="page-header"><h3> <i class="glyphicon glyphicon-share-alt"></i> {{ detay.title }}</h3></div>
+    <div class="jumbotron">
+        <div class="container">
+            {{ detay.article|nl2br }}
+        </div>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="{{ path('anasayfa') }}" class="btn btn-xs btn-danger pull-right"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+    </div>
+{% endblock body %}

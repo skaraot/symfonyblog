@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block back %}
+    <a href="{{ path('anasayfa') }}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-home"></i></a>
+{% endblock back %}
+
+{% block title %}
+    Makale Arama Sonuç
+{% endblock title %}
+
+{% block body%}
+    <h4> <i class="glyphicon glyphicon-book"></i> Bulunan Makaleler</h4>
+    {% if articles|length > 0 %}
+        {% for at in articles %}
+            <p class="well well-sm clearfix"> {{ at.title }}... <br>
+                <a href="detay/{{ at.slugtitle }}" class="btn btn-xs btn-primary pull-right">Devamı için tıklayın</a>
+            </p>
+        {% endfor %}
+    {% else %}
+        <p><h3>Malasef bir makale bulamadım.</h3></p>
+    {% endif %}
+
+{% endblock body %}

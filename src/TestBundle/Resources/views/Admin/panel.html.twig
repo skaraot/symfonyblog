@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block search %}
+{% endblock search %}
+
+{% block title %}
+    Admin Sayfası
+{% endblock title %}
+
+{% block body%}
+    <h3>Admin Paneli <a href="{{ path('kapat') }}" class="btn btn-xs btn-danger pull-right btn-sm">Oturumu Kapat</a></h3>
+    <div class="row">
+    <div class="col-xs-6 pull-left">
+    <div class="page-header">Yeni Makale Ekle</div>
+    <form action="{{ path('kaydet') }}" method="post">
+        <div class="form-group">
+            <label for="title">Başlık:</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <div class="form-group">
+            <label for="slugtitle">Slug Başlık:</label>
+            <input type="text" class="form-control" name="slugtitle">
+        </div>
+        <div class="form-group">
+            <label for="article">Makale:</label>
+            <textarea class="form-control" name="article" style="height: 200px;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary pull-right btn-sm">Giriş</button>
+    </form>
+    </div>
+
+    <div class="col-xs-6 pull-right">
+        <div class="page-header">Mevcut Makaleler</div>
+    {% for at in articles %}
+        <p class="well well-sm clearfix"> {{ at.title }}... <br>
+            {% if at.activeYN == 'Y' %}
+                <a href="duzenle/{{ at.id }}/{{ at.activeYN }}" class="btn btn-xs btn-success pull-right">Aktif</a>
+            {% else %}
+                <a href="duzenle/{{ at.id }}/{{ at.activeYN }}" class="btn btn-xs btn-danger pull-right">Pasif</a>
+            {% endif %}
+        </p>
+    {% endfor %}
+    </div>
+    </div>
+    <br><br>
+{% endblock body %}

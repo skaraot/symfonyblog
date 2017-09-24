@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block search %}
+{% endblock search %}
+
+{% block title %}
+    Admin Sayfası
+{% endblock title %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4 well well-sm">
+            <form action="{{ path('admin') }}" method="post">
+                <div class="form-group">
+                    <label for="user">Username:</label>
+                    <input type="text" class="form-control" name="user">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" name="pwd">
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Giriş</button>
+            </form>
+        </div>
+    </div>
+{% endblock body %}
